@@ -9,31 +9,33 @@ appDiv.innerHTML = `
   <p>If you have a private field and wants to acces its values or do a simple validation, properties come in handy</p>
   <p>You can use "Getters" or "Setters" and/or set values to them and access them outside their class line 10 - 19</p>
   <p>The Getters and Setters are used to change the original values in a class</p>
+  <p>Basically, properties are used to gain access (getters) to certain private properties or 
+  give(setters) access to other private value</p>
 `;
 
 class Point {
-  constructor(private x?: number, private y?: number) {
+  constructor(private _x?: number, private _y?: number) {
   }
 
   draw(){
-    console.log('X: ' + this.x + ", " + 'Y: ' + this.y );
+    console.log('X: ' + this._x + ", " + 'Y: ' + this._y );
   }
 
-  get X() {
-    return this.x;
+  get x() {
+    return this._x;
   }
 
-  set X(value) {
+  set x(value) {
     if (x < 0) 
       throw new Error ('value cannot be less than 0.');
 
-    this.x = value;
+    this._x = value;
   } 
 }
 
 let point = new Point(1, 2);
-let x = point.X;
-point.X = 10;
+let x = point.x;
+point.x = 10;
 point.draw();
 
 
